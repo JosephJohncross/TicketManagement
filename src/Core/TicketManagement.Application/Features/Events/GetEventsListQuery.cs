@@ -1,6 +1,6 @@
 namespace TicketManagement.Application.Features.Events
 {
-    public class GetEventsListQuery
+    public class GetEventsListQuery: IRequest<List<EventListVm>>
     {
         
     }

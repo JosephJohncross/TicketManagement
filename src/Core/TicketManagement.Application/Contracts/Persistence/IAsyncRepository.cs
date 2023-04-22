@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace TicketManagement.Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T: class
