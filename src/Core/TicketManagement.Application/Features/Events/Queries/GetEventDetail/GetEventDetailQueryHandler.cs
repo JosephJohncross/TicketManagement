@@ -1,16 +1,16 @@
 using TicketManagement.Application.Contracts.Persistence;
-using TicketManagement.Application.Features.Events.Dto;
 
-namespace TicketManagement.Application.Features.Events
+
+namespace TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailVm>
     {
 
         private readonly IAsyncRepository<Event> _eventRepository;
-        private readonly IAsyncRepository<Category> _categoryRepository;
+        private readonly IAsyncRepository<TicketManagement.Domain.Entities.Category> _categoryRepository;
         private readonly IMapper _mapper;
 
-        public GetEventDetailQueryHandler(IMapper mapper, IAsyncRepository<Event> eventRepository, IAsyncRepository<Category> categoryRepository)
+        public GetEventDetailQueryHandler(IMapper mapper, IAsyncRepository<Event> eventRepository, IAsyncRepository<TicketManagement.Domain.Entities.Category> categoryRepository)
         {
             _mapper = mapper;
             _eventRepository = eventRepository;

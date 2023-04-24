@@ -1,5 +1,7 @@
 using TicketManagement.Application.Features.Events;
-using TicketManagement.Application.Features.Events.Dto;
+using TicketManagement.Application.Features.Events.Queries.GetEventDetail;
+using TicketManagement.Application.Features.Categories.Queries.GetCategoryListWithEvents;
+using TicketManagement.Application.Features.Categories.Queries.GetCategoryList;
 
 namespace TicketManagement.Application.Features.Profiles
 {
@@ -9,7 +11,9 @@ namespace TicketManagement.Application.Features.Profiles
         {
             CreateMap<Event, EventListVm>().ReverseMap();
             CreateMap<Event, EventDetailVm>().ReverseMap();
-            CreateMap<Category, CategoryDto>();
+            CreateMap<TicketManagement.Domain.Entities.Category, CategoryDto>();
+            CreateMap<TicketManagement.Domain.Entities.Category, CategoryEventListVm>();
+            CreateMap<TicketManagement.Domain.Entities.Category, CategoryListVm>();
         }
     }
 }

@@ -1,6 +1,6 @@
-using TicketManagement.Application.Features.Events.Dto;
+using TicketManagement.Application.Features.Events.Queries;
 
-namespace TicketManagement.Application.Features.Events
+namespace TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     public class EventDetailVm
     {
