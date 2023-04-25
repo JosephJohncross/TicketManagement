@@ -25,5 +25,10 @@ namespace TicketManagement.Application.Features.Events.Commands.CreateEvent
             .NotEmpty().WithMessage("{PropertyName} is required")
             .GreaterThan(0);
         }
+
+        public async Task<bool> EventNameAndDateUnique(CreateEventCommand e, CancellationToken token)
+        {
+            return !(await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date));
+        }
     }
 }
