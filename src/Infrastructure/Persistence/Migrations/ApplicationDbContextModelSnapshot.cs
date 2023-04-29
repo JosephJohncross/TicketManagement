@@ -34,11 +34,11 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LastNodifiedBy")
-                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -102,11 +102,11 @@ namespace Persistence.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LastNodifiedBy")
-                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -129,7 +129,7 @@ namespace Persistence.Migrations
                             Artist = "John Egbert",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 10, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8078),
+                            Date = new DateTime(2023, 10, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7364),
                             Description = "Join John for his farwell tour across 15 continents. John really needs no introduction since he has already mesmerised the worls with his banjo",
                             ImageUrl = "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                             Name = "John Egbert Live",
@@ -141,7 +141,7 @@ namespace Persistence.Migrations
                             Artist = "Dj Neptune",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 12, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8235),
+                            Date = new DateTime(2023, 12, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7440),
                             Description = "DJs from all over the world will compete in this epic battle for the Sound King",
                             ImageUrl = "https://images.unsplash.com/photo-1526979118433-63c7344f06f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                             Name = "Clash of the Dj",
@@ -153,7 +153,7 @@ namespace Persistence.Migrations
                             Artist = "Michael Jackson",
                             CategoryId = new Guid("b0788d2f-8003-43c1-92a4-edc76a7c5dde"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2024, 2, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8258),
+                            Date = new DateTime(2024, 2, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7460),
                             Description = "Micael Jackson doesn't need an introduction. His 25 concert across the global last year were seen by thousands. Can we add you to the list?",
                             ImageUrl = "https://images.unsplash.com/photo-1577640905050-83665af216b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
                             Name = "The state of Affairs: Michael Live!",
@@ -165,7 +165,7 @@ namespace Persistence.Migrations
                             Artist = "Mauel Santinonsi",
                             CategoryId = new Guid("fe98f549-e790-4e9f-aa16-18c2292a2ee9"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 8, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8273),
+                            Date = new DateTime(2023, 8, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7625),
                             Description = "The best tech conference in the world!",
                             ImageUrl = "https://images.unsplash.com/photo-1577640905050-83665af216b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
                             Name = "Spanish guitar hits woth Manuel",
@@ -177,7 +177,7 @@ namespace Persistence.Migrations
                             Artist = "Nick Sailor",
                             CategoryId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Date = new DateTime(2023, 12, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8286),
+                            Date = new DateTime(2023, 12, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7648),
                             Description = "The critics are over the moon and so will you after you've watched this sing and dance extravagance, written by Nick Sailor, the man from 'My Dad and Sister'",
                             ImageUrl = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
                             Name = "To The Moon And Back",
@@ -197,11 +197,11 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LastNodifiedBy")
-                        .HasColumnType("text");
 
                     b.Property<bool>("OrderPaid")
                         .HasColumnType("boolean");
@@ -225,7 +225,7 @@ namespace Persistence.Migrations
                             Id = new Guid("e45c6f8b-6e9a-46f6-8635-f6729ea54bba"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2023, 4, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8309),
+                            OrderPlaced = new DateTime(2023, 4, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7681),
                             OrderTotal = 400,
                             UserId = new Guid("abb57894-6e1a-aaf6-8635-f6729ea54bba")
                         },
@@ -234,7 +234,7 @@ namespace Persistence.Migrations
                             Id = new Guid("86d3a045-34fd-4e4d-8635-ad129ea54bba"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2023, 4, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8326),
+                            OrderPlaced = new DateTime(2023, 4, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7701),
                             OrderTotal = 135,
                             UserId = new Guid("ac3cfaf5-34fd-4e4d-8635-ad1083ddc340")
                         },
@@ -243,7 +243,7 @@ namespace Persistence.Migrations
                             Id = new Guid("7a1cca4b-066c-4ac7-b3df-f6729ea5e7e0"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2023, 4, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8338),
+                            OrderPlaced = new DateTime(2023, 4, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7718),
                             OrderTotal = 85,
                             UserId = new Guid("d97a15fc-0d32-41c6-9ddf-62f0735c4c1c")
                         },
@@ -252,7 +252,7 @@ namespace Persistence.Migrations
                             Id = new Guid("3dcb3ea0-80b1-4781-b5c0-4d85c41e55a6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2023, 4, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8350),
+                            OrderPlaced = new DateTime(2023, 4, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7735),
                             OrderTotal = 245,
                             UserId = new Guid("4ad901be-6e1a-46dd-8635-f6729ea54bba")
                         },
@@ -261,7 +261,7 @@ namespace Persistence.Migrations
                             Id = new Guid("e6a2679c-80b1-4781-b5c0-6f4c91b405b6"),
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             OrderPaid = true,
-                            OrderPlaced = new DateTime(2023, 4, 29, 8, 21, 26, 304, DateTimeKind.Local).AddTicks(8362),
+                            OrderPlaced = new DateTime(2023, 4, 29, 15, 36, 37, 327, DateTimeKind.Utc).AddTicks(7752),
                             OrderTotal = 142,
                             UserId = new Guid("7aeb2c01-6e1a-46dd-8635-330bdf950f5c")
                         });

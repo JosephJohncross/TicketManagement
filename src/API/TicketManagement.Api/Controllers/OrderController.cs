@@ -1,0 +1,16 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace TicketManagement.Api.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class OrderController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public OrderController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+    }
+}

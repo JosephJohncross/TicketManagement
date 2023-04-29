@@ -1,4 +1,4 @@
-using TicketManagement.Application.Features.Events;
+using TicketManagement.Application.Features.Events.Queries.GetEventList;
 using TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using TicketManagement.Application.Features.Events.Commands.UpdateEvent;

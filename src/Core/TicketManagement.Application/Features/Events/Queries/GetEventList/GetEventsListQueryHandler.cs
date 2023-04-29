@@ -1,6 +1,6 @@
 using TicketManagement.Application.Contracts.Persistence;
 
-namespace TicketManagement.Application.Features.Events
+namespace TicketManagement.Application.Features.Events.Queries.GetEventList
 {
     public class GetEventListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListVm>>
     {
