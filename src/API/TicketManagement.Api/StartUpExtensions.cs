@@ -1,4 +1,5 @@
-using TicketManagement.Application;
+using Microsoft.OpenApi.Models;
+using TicketManagement.Api.Utility;
 
 namespace TicketManagement.Api
 {
@@ -6,6 +7,10 @@ namespace TicketManagement.Api
     {
         public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
         {
+
+            // swagger support
+            AddSwagger(builder.Services);
+
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
@@ -22,6 +27,15 @@ namespace TicketManagement.Api
 
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ticket Management API");
+                });
+            }
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -31,6 +45,21 @@ namespace TicketManagement.Api
             app.MapControllers();
 
             return app;
+        }
+
+        public static void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Ticket Management API",
+                    Description = "This Api provides enpoints for a complete online ticket management, providing functionalities such as ticket sales, event export to csv and other functionalities"
+                });
+
+                c.OperationFilter<FileResultContentTypeOperationFilter>();
+            });
         }
 
         public static async Task ResetDatabaseAsync(this WebApplication app)

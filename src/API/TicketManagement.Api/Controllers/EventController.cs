@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TicketManagement.Api.Utility;
 using TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using TicketManagement.Application.Features.Events.Commands.UpdateEvent;
@@ -63,6 +64,7 @@ namespace TicketManagement.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEventsAsCSV")]
+        [FileResultContentTypeAttribute("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());
