@@ -42,7 +42,7 @@ namespace Persistence
 
             modelBuilder.Entity<Category>().HasData(new Category
             {
-                CategoryId = playGuid,
+                CategoryId = conferenceGuid,
                 Name = "Conferences"
             });
 
@@ -84,7 +84,7 @@ namespace Persistence
 
             modelBuilder.Entity<Event>().HasData(new Event
             {
-                EventId = Guid.Parse("{FA576F8B-6A8A-4Ee6-8635-EB4BE2D84E88}"),
+                EventId = Guid.Parse("{EF236F8B-788A-4E6D-8635-EB4BE2D84E88}"),
                 Name = "Spanish guitar hits woth Manuel",
                 Price = 25,
                 Artist = "Mauel Santinonsi",
@@ -126,7 +126,7 @@ namespace Persistence
 
             modelBuilder.Entity<Order>().HasData(new Order
             {
-                Id = Guid.Parse("{71CCA4B-066C-4AC7-B3DF-F6729EA5E7E0}"),
+                Id = Guid.Parse("{7A1CCA4B-066C-4AC7-B3DF-F6729EA5E7E0}"),
                 OrderTotal = 85,
                 OrderPaid = true,
                 OrderPlaced = DateTime.Now,
