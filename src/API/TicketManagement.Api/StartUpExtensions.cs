@@ -1,5 +1,9 @@
 using Microsoft.OpenApi.Models;
+using TicketManagement.Api.Middleware;
+using TicketManagement.Api.Services;
 using TicketManagement.Api.Utility;
+using TicketManagement.Application.Contracts;
+using TicketManagement.Identity;
 
 namespace TicketManagement.Api
 {
@@ -14,7 +18,10 @@ namespace TicketManagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+            builder.Services.AddIdentityServices(builder.Configuration);
 
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
             builder.Services.AddControllers();
 
             builder.Services.AddCors(options =>
@@ -38,9 +45,15 @@ namespace TicketManagement.Api
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            // app.UseRouting();
 
-            app.UseCors();
+            app.UseAuthentication();
+
+            app.UseCustomExceptionHandler();
+
+            app.UseCors("Open");
+
+            app.UseAuthorization();
 
             app.MapControllers();
 

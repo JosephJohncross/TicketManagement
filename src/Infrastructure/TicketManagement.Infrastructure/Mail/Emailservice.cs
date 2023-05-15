@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Logging;
 using TicketManagement.Application.Contracts.Infrastructure;
 using TicketManagement.Application.Models.Mail;
 using MailKit.Net.Smtp;
@@ -11,10 +12,13 @@ namespace TicketManagement.Infrastructure.Mail
     public class Emailservice : IEmailService
     {
         public EmailSettings _emailSettings { get; }
+        public ILogger<Emailservice> _logger { get; }
 
-        public Emailservice(IOptions<EmailSettings> mailSettings)
+        public Emailservice(IOptions<EmailSettings> mailSettings, ILogger<Emailservice> logger)
         {
             _emailSettings = mailSettings.Value;
+            _logger = logger;
+            
         }
 
         public async Task<bool> SendEmail(Email email)
@@ -34,11 +38,15 @@ namespace TicketManagement.Infrastructure.Mail
                 smtp.Authenticate(_emailSettings.User, _emailSettings.Password);
                 var response = await smtp.SendAsync(mail);
                 smtp.Disconnect(true);
+
+                _logger.LogInformation("Email sent");
+
                 return true;
 
             }
             catch (Exception)
             {
+                _logger.LogError("Email sending failed");
                 return false;
             }
         }

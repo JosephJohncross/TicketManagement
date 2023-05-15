@@ -1,3 +1,5 @@
+using TicketManagement.Application.Exceptions;
+
 namespace TicketManagement.Application.Features.Events.Commands.UpdateEvent
 {
     public class UpdateEventCommandHandler : IRequestHandler<UpdateEventCommand>
@@ -15,6 +17,18 @@ namespace TicketManagement.Application.Features.Events.Commands.UpdateEvent
         {
             var eventToUpdate = await _eventRepository.GetByIdAsync(request.EventId);
 
+            if (eventToUpdate == null)
+            {
+                throw new NotFoundException(nameof(Event), request.EventId);
+            }
+
+            var validator = new UpdateEventCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult.Errors.Count > 0)
+            {
+                throw new Exceptions.ValidationException(validationResult);
+            }
             _mapper.Map(request, eventToUpdate, typeof(UpdateEventCommand), typeof(Event));
             await _eventRepository.UpdateAsync(eventToUpdate);
 

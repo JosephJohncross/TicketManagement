@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using TicketManagement.Application.Features.Categories.Commands.CreateCategory;
 using TicketManagement.Application.Features.Categories.Queries.GetCategoryList;
 using TicketManagement.Application.Features.Categories.Queries.GetCategoryListWithEvents;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TicketManagement.Api.Controllers
 {
@@ -23,6 +24,7 @@ namespace TicketManagement.Api.Controllers
             return Ok(dtos);
         }
         
+        [Authorize]
         [HttpGet("allwithevents", Name = "GetCAtegoriesWithEvents")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status200OK)]
